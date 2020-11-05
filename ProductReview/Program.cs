@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
@@ -10,27 +11,24 @@ namespace ProductReview
         {
             Console.WriteLine("LINQ-Product Review Program!");
 
-            DataTable table = new DataTable();
-            table.Columns.Add("ID");
-            table.Columns.Add("ProductName");
-
-            table.Rows.Add("1", "A");
-            table.Rows.Add("2", "B");
-            table.Rows.Add("3", "C");
-
-            Program inst = new Program();
-            inst.DisplayProducts(table);
-
-        }
-
-        private void DisplayProducts(DataTable table)
-        {
-            var productNames = from products in table.AsEnumerable() select products.Field<string>("ProductName");
-            Console.WriteLine("Product Names: ");
-            foreach(string productName in productNames)
+            List<ProductReviewClass> productReviewList = new List<ProductReviewClass>()
             {
-                Console.WriteLine(productName);
+                new ProductReviewClass() { ProductId = 1, UserId = 1, Rating = 5, Review = "Good", IsLike = true },
+                new ProductReviewClass() { ProductId = 2, UserId = 1, Rating = 5, Review = "Bad", IsLike = true },
+                new ProductReviewClass() { ProductId = 3, UserId = 2, Rating = 5, Review = "Good", IsLike = true },
+                new ProductReviewClass() { ProductId = 4, UserId = 2, Rating = 5, Review = "Bad", IsLike = true },
+                new ProductReviewClass() { ProductId = 5, UserId = 3, Rating = 5, Review = "Good", IsLike = false },
+                new ProductReviewClass() { ProductId = 6, UserId = 3, Rating = 5, Review = "Good", IsLike = true },
+                new ProductReviewClass() { ProductId = 7, UserId = 6, Rating = 5, Review = "Good", IsLike = false },
+            };
+
+            foreach (var list in productReviewList)
+            {
+                Console.WriteLine("ProductID: " + list.ProductId + " " + "UserID: " + list.UserId + " " + "Rating: " + list.Rating + " " + "Review: " + list.Review + " " + "IsLike: " + list.IsLike);
             }
+
         }
+
+
     }
 }
