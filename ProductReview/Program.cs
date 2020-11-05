@@ -43,8 +43,12 @@ namespace ProductReview
 
             Console.WriteLine("Displaying top 3 records---------------");
 
-            Management mg = new Management();
-            mg.TopRecords(productReviewList);
+            Management management = new Management();
+            management.TopRecords(productReviewList);
+
+            Console.WriteLine("Displaying records with rating > 3 and id = 1,4,9---------------");
+
+            management.FindRecordForGIvenRatingAndGivenID(productReviewList);
         }
 
 
