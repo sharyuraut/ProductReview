@@ -29,12 +29,19 @@ namespace ProductReview
             var data = (from productReviews in ProductReviewlist
                         where (productReviews.Rating > 3 && (productReviews.ProductId == 1 || productReviews.ProductId == 4 || productReviews.ProductId == 9))
                         select productReviews).ToList();
-            Console.WriteLine("\n");
             foreach (var list in data)
             {
                 Console.WriteLine("ProductID: " + list.ProductId + " UserID: " + list.UserId + " Rating: " + list.Rating + " Review: " + list.Review + " IsLike: " + list.IsLike);
             }
         }
 
+        internal void CountRecordsForEachProductID(List<ProductReviewClass> productReviewList)
+        {
+            var countRecords = productReviewList.GroupBy(x => x.ProductId).Select(x => new { productID = x.Key, Count = x.Count() });
+            foreach (var list in countRecords)
+            {
+                Console.WriteLine(list.productID + "----" + list.Count);
+            }
+        }
     }
 }
