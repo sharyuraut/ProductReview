@@ -63,7 +63,9 @@ namespace ProductReview
 
             management.SkipTop5Records(productReviewList);
 
+            Console.WriteLine("\n Add Records to datatable");
 
+            management.InsertValuesInDataTable(productReviewList);
         }
 
 

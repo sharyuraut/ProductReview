@@ -8,7 +8,7 @@ namespace ProductReview
 {
     class Management
     {
-        public readonly DataTable dt = new DataTable();
+        public readonly DataTable datatable = new DataTable();
 
         //UC 2
         /// <summary>
@@ -82,6 +82,24 @@ namespace ProductReview
             {
                 Console.WriteLine("ProductID : " + list.ProductId + " " + "UserID : " + list.UserId
                     + " " + "Rating : " + list.Rating + " " + "Review : " + list.Review + " " + "isLike : " + list.IsLike);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productReviewList"></param>
+        public void InsertValuesInDataTable(List<ProductReviewClass> productReviewList)
+        {
+            datatable.Columns.Add("ProductId", typeof(int));
+            datatable.Columns.Add("UserId", typeof(int));
+            datatable.Columns.Add("Rating", typeof(double));
+            datatable.Columns.Add("Review");
+            datatable.Columns.Add("IsLike", typeof(bool));
+
+            foreach (ProductReviewClass product in productReviewList)
+            {
+                datatable.Rows.Add(product.ProductId, product.UserId, product.Rating, product.Review, product.IsLike);
             }
         }
     }
