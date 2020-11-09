@@ -70,6 +70,10 @@ namespace ProductReview
             Console.WriteLine("\n Retrieve data from datatable with Islike=True");
 
             management.GetRecordsWithIsLikeTrue();
+
+            Console.WriteLine("\n Displaying average rating for specified productId");
+
+            management.GetAverageRating();
         }
 
 
