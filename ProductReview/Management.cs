@@ -102,5 +102,19 @@ namespace ProductReview
                 datatable.Rows.Add(product.ProductId, product.UserId, product.Rating, product.Review, product.IsLike);
             }
         }
+
+        public void GetRecordsWithIsLikeTrue()
+        {
+            var recordedData = from ProductReviewClass in datatable.AsEnumerable()
+                               where ProductReviewClass.Field<bool>("IsLike") == true
+                               select ProductReviewClass;
+
+            foreach (var product in recordedData)
+            {
+                Console.WriteLine("ProductID : " + product.Field<int>("ProductId") + " " + "UserId : " + product.Field<int>("UserId")
+                    + " " + "Rating : " + product.Field<double>("Rating") + " " + "Review : " + product.Field<string>("Review") + " "
+                    + "IsLike : " + product.Field<bool>("IsLike"));
+            }
+        }
     }
 }

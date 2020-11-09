@@ -66,6 +66,10 @@ namespace ProductReview
             Console.WriteLine("\n Add Records to datatable");
 
             management.InsertValuesInDataTable(productReviewList);
+
+            Console.WriteLine("\n Retrieve data from datatable with Islike=True");
+
+            management.GetRecordsWithIsLikeTrue();
         }
 
 
