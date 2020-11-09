@@ -78,6 +78,10 @@ namespace ProductReview
             Console.WriteLine("\n Displaying records with review as Nice");
 
             management.GetProductWithReviewNice();
+
+            Console.WriteLine("\n Retrieve all data for userid 10 and it's reviews");
+
+            management.GetRecordsWithUserId10();
         }
 
 
