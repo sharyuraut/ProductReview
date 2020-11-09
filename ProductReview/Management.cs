@@ -11,6 +11,10 @@ namespace ProductReview
         public readonly DataTable dt = new DataTable();
 
         //UC 2
+        /// <summary>
+        /// Get Top records
+        /// </summary>
+        /// <param name="ProductReviewlist"></param>
         public void TopRecords(List<ProductReviewClass> ProductReviewlist)
         {
             var recordedData = (from productReviews in ProductReviewlist
@@ -23,7 +27,10 @@ namespace ProductReview
         }
 
         //UC 3
-
+        /// <summary>
+        /// Get record for given rating and given id
+        /// </summary>
+        /// <param name="ProductReviewlist"></param>
         public void FindRecordForGIvenRatingAndGivenID(List<ProductReviewClass> ProductReviewlist)
         {
             var data = (from productReviews in ProductReviewlist
@@ -35,6 +42,10 @@ namespace ProductReview
             }
         }
 
+        /// <summary>
+        /// Count records for each id
+        /// </summary>
+        /// <param name="productReviewList"></param>
         internal void CountRecordsForEachProductID(List<ProductReviewClass> productReviewList)
         {
             var countRecords = productReviewList.GroupBy(x => x.ProductId).Select(x => new { productID = x.Key, Count = x.Count() });
@@ -44,7 +55,10 @@ namespace ProductReview
             }
         }
 
-
+        /// <summary>
+        /// Get product id and reviews
+        /// </summary>
+        /// <param name="productReviewList"></param>
         public void GetProductIdAndReview(List<ProductReviewClass> productReviewList)
         {
             var recordedData = from productReview in productReviewList select new { productReview.ProductId, productReview.Review };
@@ -55,6 +69,11 @@ namespace ProductReview
             }
         }
 
+
+        /// <summary>
+        /// Skip top 5 records
+        /// </summary>
+        /// <param name="productReviewList"></param>
         public void SkipTop5Records(List<ProductReviewClass> productReviewList)
         {
             var recordedData = (from productReview in productReviewList select productReview).Skip(5);
