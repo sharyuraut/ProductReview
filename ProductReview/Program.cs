@@ -16,13 +16,13 @@ namespace ProductReview
                 new ProductReviewClass() { ProductId = 1, UserId = 1, Rating = 5, Review = "Good", IsLike = true },
                 new ProductReviewClass() { ProductId = 2, UserId = 1, Rating = 5, Review = "Bad", IsLike = true },
                 new ProductReviewClass() { ProductId = 3, UserId = 2, Rating = 5, Review = "Good", IsLike = true },
-                new ProductReviewClass() { ProductId = 4, UserId = 2, Rating = 5, Review = "Bad", IsLike = true },
+                new ProductReviewClass() { ProductId = 4, UserId = 2, Rating = 5, Review = "Nice", IsLike = true },
                 new ProductReviewClass() { ProductId = 5, UserId = 2, Rating = 5, Review = "Good", IsLike = false },
                 new ProductReviewClass() { ProductId = 6, UserId = 3, Rating = 5, Review = "Good", IsLike = true },
                 new ProductReviewClass() { ProductId = 7, UserId = 6, Rating = 5, Review = "Good", IsLike = false },
                 new ProductReviewClass() {ProductId=2, UserId = 3, Rating = 4, Review = "Great", IsLike = true},
                 new ProductReviewClass() {ProductId=8, UserId = 5, Rating = 3, Review = "Good", IsLike = true},
-                new ProductReviewClass() {ProductId=9, UserId = 7, Rating = 2, Review = "Okay", IsLike = true},
+                new ProductReviewClass() {ProductId=9, UserId = 7, Rating = 2, Review = "Nice", IsLike = true},
                 new ProductReviewClass() {ProductId=1, UserId = 8, Rating = 1, Review = "Poor", IsLike = true},
                 new ProductReviewClass() {ProductId=1, UserId = 7, Rating = 5, Review = "Super", IsLike = true},
                 new ProductReviewClass() {ProductId=2, UserId = 7, Rating = 4, Review = "Great", IsLike = true},
@@ -74,6 +74,10 @@ namespace ProductReview
             Console.WriteLine("\n Displaying average rating for specified productId");
 
             management.GetAverageRating();
+
+            Console.WriteLine("\n Displaying records with review as Nice");
+
+            management.GetProductWithReviewNice();
         }
 
 
