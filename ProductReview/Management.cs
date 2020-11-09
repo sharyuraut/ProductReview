@@ -54,5 +54,16 @@ namespace ProductReview
                 Console.WriteLine(list.ProductId + "-->" + list.Review);
             }
         }
+
+        public void SkipTop5Records(List<ProductReviewClass> productReviewList)
+        {
+            var recordedData = (from productReview in productReviewList select productReview).Skip(5);
+
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductID : " + list.ProductId + " " + "UserID : " + list.UserId
+                    + " " + "Rating : " + list.Rating + " " + "Review : " + list.Review + " " + "isLike : " + list.IsLike);
+            }
+        }
     }
 }

@@ -58,6 +58,10 @@ namespace ProductReview
             Console.WriteLine("\n ProductId and its review: ");
 
             management.GetProductIdAndReview(productReviewList);
+
+            Console.WriteLine("\n Skip Top 5 Records");
+
+            management.SkipTop5Records(productReviewList);
         }
 
 
