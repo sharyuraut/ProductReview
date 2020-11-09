@@ -54,6 +54,10 @@ namespace ProductReview
             Console.WriteLine("\n Retrieve count of reviews for each productID-----------");
 
             management.CountRecordsForEachProductID(productReviewList);
+
+            Console.WriteLine("\n ProductId and its review: ");
+
+            management.GetProductIdAndReview(productReviewList);
         }
 
 
